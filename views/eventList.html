@@ -1,0 +1,47 @@
+<!doctype html>
+<html ng-app>
+
+<head>
+  <title>Event</title>
+  <script src='/static/js/angular.min.js'></script>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+  <script src='/static/js/todo.js'></script>
+  <link rel='stylesheet' href='/static/css/todo.css'>
+</head>
+
+<body>
+<div class='container' ng-controller='TaskCtrl'>
+  <!--<h1 class='charcoal rounded-box'>checkList</h1>-->
+
+  <h2>Event List</h2>
+<table class="common_table">
+                <tr>
+                    <td width="3%">活动名称</td>
+                    <td width="3%">活动日期</td>
+                    <td width="3%">开始时间</td>
+                    <td width="3%">活动时长</td>
+                    <td width="3%">报名</td>
+                </tr>
+                
+            {{range .evlst}}
+                <tr>
+                    <td width="3%">{{.Eventname}}</td>
+                    <td width="3%">{{.EventStartDate }}</td>
+                    <td width="3%">{{.EventStartTime}}</td>             
+                    <td width="3%">{{.EventContinue}}</td>
+                    <td width="3%"><a href="/eventMember">报名</td>
+                </tr>
+                    {{end}}
+            </table>
+
+    <form  class="addevent" name = "AddEvent" method = "post"  action="/event">
+     <input type="text" class="type_txt" placeholder='活动主题' name="eName" >
+     <input type="text" class="type_txt"  placeholder='哪天' name="eStartDate">
+     <input type="text" class="type_txt"  placeholder='几点' name="eStartTime">
+    <input type="text" class="type_txt"  placeholder='搞多久' name="eContinue">
+    <input type="submit" class="confirm" value="submit">
+    </form>
+</div>
+</body>
+</html>

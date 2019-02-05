@@ -1,0 +1,59 @@
+<!doctype html>
+<html ng-app>
+
+<head>
+  <title>Event</title>
+  <script src='/static/js/angular.min.js'></script>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+  <script src='/static/js/todo.js'></script>
+  <link rel='stylesheet' href='/static/css/todo.css'>
+</head>
+
+<body>
+<div class='container' ng-controller='TaskCtrl'>
+  <!--<h1 class='charcoal rounded-box'>checkList</h1>-->
+
+  <h2>Event List</h2>
+<table class="common_table">
+                 <tr>
+                    <td width="3%">活动名称</td>
+                    <td width="3%">活动日期</td>
+                    <td width="3%">开始时间</td>
+                    <td width="3%">活动时长</td>
+                </tr>
+                
+            {{range .evlst}}
+                <tr>
+                    <td width="3%">{{.Eventname}}</td>
+                    <td width="3%">{{.EventStartDate }}</td>
+                    <td width="3%">{{.EventStartTime}}</td>             
+                    <td width="3%">{{.EventContinue}}</td>
+                </tr>
+                    {{end}}
+            </table>
+  
+  <table class="common_table">
+                <tr>
+                    <td width="3%">姓名</td>
+                    <td width="3%">电话号码</td>
+                </tr>
+                
+            {{range .mlst}}
+                 <tr>
+                    <td width="3%">{{.MemberName}}</td>
+                    <td width="3%">{{.Phone}}</td>
+                 </tr>
+            {{end}}
+            </table>
+  
+    <form  class="addmember" name = "AddMember" method = "post"  action="/eventMember">
+     <input type="text" class="type_txt" placeholder='enter you name' name="uName" >
+     <input type="text" class="type_txt"  placeholder='enter you phone number' name="uPhone">
+    <input type="submit" class="confirm" value="报名">
+    </form>
+    
+ 
+</div>
+</body>
+</html>
